@@ -54,6 +54,9 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+					<li>
+                        <a class="page-scroll" href="#online">Online Booking</a>
+                    </li>
                     <li>
                         <a class="page-scroll" href="#services">Services</a>
                     </li>
@@ -74,7 +77,7 @@
                             <i class="fa fa-phone"></i>
                             +91 9620 060 909 / +91 8722 402 100
                         </a>
-                    </li>
+					</li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -93,6 +96,300 @@
         </div>
     </header>
 
+	<section id="online"style="background-color:white; margin-bottom:-30px">
+	<div class="col-lg-18" style="background-color:white; margin-left:100px">
+	<div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Online Booking</h2>
+                    <h3 style="margin-bottom: 50px" class="section-subheading text-muted">You name it and we have it!</h3>
+                </div>
+            </div>
+     	<div class="tablist">		
+            <!-- Nav tabs -->
+           <!-- <ul class="nav nav-tabs">
+              <li class="active"><a href="#tab1" data-toggle="tab">City Taxi Delhi NCR</a></li>
+               <!--<li><a href="#tab2" data-toggle="tab">My Bookings</a></li> -->
+               <!--<li><a href="#tab3" data-toggle="tab">Preferences </a></li> -->
+             
+            <!--</ul>
+            
+            <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab1">
+                  
+                   <div class="row"> 
+                    <form action="" class="form">
+                        <div class="col-md-6">
+                       
+                        
+
+			<div class="form-group">
+				<span> 
+					<label class="ph2">Mobile Number<small style="font-size:13px;">&nbsp;&nbsp;(10 digit only)</small></label>
+					<span id="lodmobdisp" style="position: relative; top: 37px; left: 118px;"></span>
+					<span id="whitimg" style="position: relative; top: 37px; left: 124px;"></span>
+				</span>	
+				<input type="number" class="form-control mobile_no booking" placeholder="Mobile No" id="mobile_no_booking" name="mobile_no" maxlength="10" >		
+			</div>
+
+
+			<div class="form-group">
+				<span> 
+					<label class="ph2">Name</label>
+				</span>	
+				<input type="text" class="form-control mobile_no booking" placeholder="Please Enter Your Name" id="fullname" name="name">		
+			</div>
+
+			<div class="form-group">
+				<span> 
+					<label class="ph2">Pick Up Area</label>
+						<span class="pull-right">
+						<span id="sourcload"></span>
+							<!--
+		                           <img src="images/map.jpg" id="mapId" data-toggle="modal" data-target="#myModal"/></span>
+		                       -->
+				        </span>
+				</span>						
+				<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" class="form-control pickup booking ui-autocomplete-input" placeholder="Enter first 3 letters" id="pickup_area" onblur="validateName('pickup_area');" name="pickup_area" rel="" autocomplete="off" >
+				<input type="hidden" id="txtSourceId">
+				<div class="spacer10"> </div>	
+			</div>	
+			
+			<div class="form-group">
+				<span> 
+					<label class="ph2">Drop Off Area</label>
+						<span class="pull-right">
+						<span id="dropload"></span>
+													 
+						</span>
+				</span>	
+				<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" class="form-control dropoff booking ui-autocomplete-input" placeholder="Enter first 3 letters" onblur="validateName('dropoff_area');" id="dropoff_area" name="dropoff_area" rel="" autocomplete="off">	
+				<input type="hidden" id="txtDestinationId">
+			</div>
+
+			<div class="form-group">
+				<span> 
+					<label class="ph2">Address</label>
+				</span>	
+		<!--		<input type="text" class="form-control mobile_no booking"  onblur="validateName('address');" placeholder="Address" id = "address" name = "address"  ></input>		-->
+		  <textarea class="form-control mobile_no booking" onblur="validateName('address');" id="address" name="address"></textarea> 
+			</div>
+			
+			<div class="form-group">
+				<label class="ph2">Date</label>
+					<div class="input-group">	
+						<input type="text" class="form-control bookingdate booking" placeholder="10 Oct 2013" id="date_id" readonly="">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-calendar01"></i></span>					
+					</div>
+			</div>				
+							
+			<div class="form-group">	
+				<label class="ph2">Time</label>
+					<div class="input-group">
+						<input type="text" class="form-control bookingtime booking" placeholder="11:30 AM" id="time_id" readonly="">
+						<span class="input-group-addon d">
+							<i class="glyphicon glyphicon-time " style="font-weight:300;"></i> 
+						</span>				
+					</div>	
+			</div>
+
+<!--
+			<div class="form-group">	
+				<label class="ph2">Captcha</label>
+					<div class="input-group" >
+						 <input  class="form-control mobile_no booking"  type="text" name="vercode" /> 	 &nbsp; <img src="captcha.php?text=">
+					
+						
+						
+					</div>	
+			</div>
+
+-->
+
+
+			
+			
+			
+				
+			
+		
+                        
+                        
+    
+                        
+                        </div></form>
+                        
+                        
+                        <div class="col-md-6">
+                        <div class="form-group">	
+                            <div class="checkbox">
+     <input id="Sylvia" class="css-checkbox" type="checkbox">
+	 <label for="Sylvia" name="Sylvia" class="css-label">Accept Terms and Conditions</label>
+	 <br>
+	 <span id="checkid" style="color:#FF0000;font-size:12px;margin-left:31px;"></span>
+	</div>
+    
+    					<button type="button" class="submit btn-default" id="bookingId">Book Now</button>
+						<span id="cont-4-1"></span>
+                        </div>
+                        </div>
+                        <div data-role="fieldcontain" style="display:none;">
+							<input type="text" id="pickupAirportList_dummy" class="" readonly=""><select name="Location" id="pickupAirportList" data-role="content" class="pickupGetValue dw-hsel" tabindex="-1">
+								<option value="146138">SAFDARJUNG AIRPORT</option>
+								<option value="147270">INTERNATIONAL AIRPORT T 3</option>
+								<option value="116284">AIRPORT DOMESTIC T 1</option>
+								<option value="147289">MEHRAM NAGAR NEAR AIRPORT</option>
+								<option value="146986">AIRPORT T 3</option>
+							</select>
+						</div>
+						<!-- pickup train modal  -->
+						<div data-role="fieldcontain" style="display:none;">
+							<input type="text" id="pickupTarinList_dummy" class="" readonly=""><select name="Location" id="pickupTarinList" data-role="content" class="pickupGetValue dw-hsel" tabindex="-1">
+								<option value="146355">GURGAON RAILWAY STATION</option>
+								<option value="146137">SAFDAR JUNG RAILWAY STATION</option>
+								<option value="146097">NEW DELHI RAILWAY STATION</option>
+								<option value="146101">NIZAMUDDIN RAILWAY STATION</option>
+								<option value="146104">OLD DELHI RAILWAY STATION</option>
+								<option value="146879">SARAI ROHILLA RAILWAY STATION</option>
+							</select>
+						</div>	              	
+		              	
+		              	
+		              	<!-- dropoff Airport modal  -->
+		              	<div data-role="fieldcontain" style="display:none;">
+							<input type="text" id="dropoffAirportList_dummy" class="" readonly=""><select name="Location" id="dropoffAirportList" data-role="content" class="dropoffGetValue dw-hsel" tabindex="-1">
+								<option value="146138">SAFDARJUNG AIRPORT</option>
+								<option value="147270">INTERNATIONAL AIRPORT T 3</option>
+								<option value="116284">AIRPORT DOMESTIC T 1</option>
+								<option value="147289">MEHRAM NAGAR NEAR AIRPORT</option>
+								<option value="146986">AIRPORT T 3</option>
+							</select>
+						</div>
+						<!-- dropoff train modal  -->
+						<div data-role="fieldcontain" style="display:none;">
+							<input type="text" id="dropoffTarinList_dummy" class="" readonly=""><select name="Location" id="dropoffTarinList" data-role="content" class="dropoffGetValue dw-hsel" tabindex="-1">
+								<option value="146355">GURGAON RAILWAY STATION</option>
+								<option value="146137">SAFDAR JUNG RAILWAY STATION</option>
+								<option value="146097">NEW DELHI RAILWAY STATION</option>
+								<option value="146101">NIZAMUDDIN RAILWAY STATION</option>
+								<option value="146104">OLD DELHI RAILWAY STATION</option>
+								<option value="146879">SARAI ROHILLA RAILWAY STATION</option>
+							</select>
+						</div>
+                        
+                   </div>
+                  
+              </div>
+              <div class="tab-pane" id="tab2">
+              <div class="listing-book">
+              <ul class="bookings-list">
+              <div class="col-list"><li>
+              <p class="ph2">Lajpat Nagar</p>
+			  <p class="ph2">Delhi</p>
+              <p class="ph4" style="padding-top:5px;">10 Oct 2013, 11:30 AM</p>
+              </li>
+              <li class="arrow">
+              <p class="ph2">Sector 17</p>
+			  <p class="ph2">Gurgoun</p>
+              <p class="ph4">Status :<i class="ph5 ph-color">Pending</i></p>
+              </li></div>
+              <div class="col-list"><li>
+              <p class="ph2">Lajpat Nagar</p>
+			  <p class="ph2">Delhi</p>
+              <p class="ph4" style="padding-top:5px;">10 Oct 2013, 11:30 AM</p>
+              </li>
+              <li class="arrow">
+              <p class="ph2">Sector 17</p>
+			  <p class="ph2">Gurgoun</p>
+              <p class="ph4">Status :<i class="ph5 ph-color">Pending</i></p>
+              </li></div>
+              <div class="col-list"><li>
+              <p class="ph2">Lajpat Nagar</p>
+			  <p class="ph2">Delhi</p>
+              <p class="ph4" style="padding-top:5px;">10 Oct 2013, 11:30 AM</p>
+              </li>
+              <li class="arrow">
+              <p class="ph2">Sector 17</p>
+			  <p class="ph2">Gurgoun</p>
+              <p class="ph4">Status :<i class="ph5 ph-color">Pending</i></p>
+              </li></div>
+              <div class="col-list last"><li>
+              <p class="ph2">Lajpat Nagar</p>
+			  <p class="ph2">Delhi</p>
+              <p class="ph4" style="padding-top:5px;">10 Oct 2013, 11:30 AM</p>
+              </li>
+              <li class="arrow">
+              <p class="ph2">Sector 17</p>
+			  <p class="ph2">Gurgoun</p>
+              <p class="ph4">Status :<i class="ph5 ph-color">Pending</i></p>
+              </li></div>
+	                    
+              </ul>
+              </div>
+              </div>
+              <div class="tab-pane" id="tab3"><form role="form" class="form-horizontal">
+			
+				<div style="padding-bottom:0px;" class="form-group">			
+					<span style="font-size:6em; opacity:0.5; background-color:#a3a3a3;" class="glyphicon glyphicon-user "></span>
+					<div class="btn-group-vertical pull-right">
+						<button style="border-radius:3px; padding-top:10px; padding-bottom:10px;" class="btn btn-primary btn-sm" type="button">
+							<span>Change Photo</span>
+						</button>
+						<div class="spacer10"></div>	
+						<button style="border-radius:3px;  padding-top:10px; padding-bottom:10px;" class="btn btn-primary btn-sm" type="button">
+							<span>Change Password</span>
+						</button>
+					</div>	
+				</div>
+						
+			
+				<div style="padding-top:0px;" class="form-group">
+					<span><label class="ph2">Email</label></span>						
+					<input type="text" class="form-control">
+				</div>	
+			
+				<div class="form-group">
+					<span><label class="ph2">Name</label></span>	
+					<input type="text" class="form-control">		
+				</div>
+			
+				<div class="form-group">
+					<span><label class="ph2">Address</label></span>						
+					<input type="text" placeholder="Home" class="form-control">
+					<div class="spacer10"> </div>	
+					<input type="text" placeholder="Work" class="form-control">
+				</div>	
+			
+			
+				<div class="form-group">
+					<span><label class="ph2">Prefered City</label></span>	
+					<div class="input-group">
+						<input type="text" style="border-right-width:0px" placeholder="Delhi" class="form-control">
+						<span data-toggle="dropdown" class="input-group-addon dropdown-toggle">
+							<i class="glyphicon glyphicon-chevron-down"></i> 
+						</span>
+						<ul role="menu" class="dropdown-menu">
+							<li><a href="#">Gurgaon</a></li>
+							<li><a href="#">Noida</a></li>
+						
+						</ul>
+					</div> 		
+				</div>
+                <div class="form-group">
+				<a href="">	
+		<button class="btn btn-primary" type="button">SUBMIT</button></a>
+			</div>
+			
+		</form></div>
+              
+            </div>
+
+              </div>
+                
+                
+     	</div>
+	</section>
+	
     <!-- Services Section -->
     <section id="services" class="bg-light-gray">
         <div class="container">
@@ -131,7 +428,8 @@
             </div>
         </div>
     </section>
-
+	
+	
     <!-- Portfolio Grid Section -->
     <!--<section id="portfolio" class="bg-light-gray">
         <div class="container">
