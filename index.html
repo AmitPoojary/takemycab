@@ -43,8 +43,8 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">
-                    <img src="img/logos/tmc-logo.png" alt="" width="130">
+                <a class="page-scroll" href="#page-top">
+                    <img src="img/logos/tmc-logo.png" alt="" width="115" height="50">
                 </a>
             </div>
 
@@ -150,7 +150,7 @@
 		                       -->
 				        </span>
 				</span>						
-				<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" class="form-control pickup booking ui-autocomplete-input" placeholder="Enter first 3 letters" id="pickup_area" onblur="validateName('pickup_area');" name="pickup_area" rel="" autocomplete="off" >
+				<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" class="form-control pickup booking ui-autocomplete-input" placeholder="Pick Up Area" id="pickup_area" onblur="validateName('pickup_area');" name="pickup_area" rel="" autocomplete="off" >
 				<input type="hidden" id="txtSourceId">
 				<div class="spacer10"> </div>	
 			</div>	
@@ -163,8 +163,8 @@
 													 
 						</span>
 				</span>	
-				<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" class="form-control dropoff booking ui-autocomplete-input" placeholder="Enter first 3 letters" onblur="validateName('dropoff_area');" id="dropoff_area" name="dropoff_area" rel="" autocomplete="off">	
-				<input type="hidden" id="txtDestinationId">
+				<span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" class="form-control dropoff booking ui-autocomplete-input" placeholder="Drop Off Area" onblur="validateName('dropoff_area');" id="dropoff_area" name="dropoff_area" rel="" autocomplete="off">	
+				<input  type="hidden" id="txtDestinationId">
 			</div>
 
 			<div class="form-group">
@@ -172,13 +172,13 @@
 					<label class="ph2">Address</label>
 				</span>	
 		<!--		<input type="text" class="form-control mobile_no booking"  onblur="validateName('address');" placeholder="Address" id = "address" name = "address"  ></input>		-->
-		  <textarea class="form-control mobile_no booking" onblur="validateName('address');" id="address" name="address"></textarea> 
+		  <textarea placeholder="Address" class="form-control mobile_no booking" onblur="validateName('address');" id="address" name="address"></textarea> 
 			</div>
 			
 			<div class="form-group">
 				<label class="ph2">Date</label>
 					<div class="input-group">	
-						<input type="text" class="form-control bookingdate booking" placeholder="10 Oct 2013" id="date_id" readonly="">
+						<input type="text" class="form-control bookingdate booking" placeholder="Date" id="date_id" >
 						<span class="input-group-addon"><i class="glyphicon glyphicon-calendar01"></i></span>					
 					</div>
 			</div>				
@@ -186,7 +186,7 @@
 			<div class="form-group">	
 				<label class="ph2">Time</label>
 					<div class="input-group">
-						<input type="text" class="form-control bookingtime booking" placeholder="11:30 AM" id="time_id" readonly="">
+						<input type="text" class="form-control bookingtime booking" placeholder="Time" id="time_id">
 						<span class="input-group-addon d">
 							<i class="glyphicon glyphicon-time " style="font-weight:300;"></i> 
 						</span>				
@@ -396,14 +396,18 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Services</h2>
-                    <h3 class="section-subheading text-muted">Choose your preference</h3>
+                    <h3 class="section-subheading text-muted">Choose your preference and check for the fare below</h3>
                 </div>
             </div>
             <div class="row text-center">
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                        <img src="img/logos/tmc-logo.png" alt="" width="100" height="50" style="    z-index: 99999;
+    position: absolute;
+    margin-left: -48px;
+    margin-top: 23px;">
+						<i class="fa fa-circle fa-stack-2x text-primary"></i>
+                        
                     </span>
                     <h4 class="service-heading">Economy</h4>
                     <p class="text-muted">Choose from a wide range of hatchback cars
@@ -411,16 +415,24 @@
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+<img src="img/logos/tmc-logo.png" alt="" width="100" height="50" style="    z-index: 99999;
+    position: absolute;
+    margin-left: -48px;
+    margin-top: 23px;">                       
+					   <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                       
                     </span>
                     <h4 class="service-heading">Standard</h4>
                     <p class="text-muted">Choose from a wide range of Sedan cars</p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
+					<img src="img/logos/tmc-logo.png" alt="" width="100" height="50" style="    z-index: 99999;
+    position: absolute;
+    margin-left: -48px;
+    margin-top: 23px;">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+                       
                     </span>
                     <h4 class="service-heading">Luxury</h4>
                     <p class="text-muted">Choose from a wide range of Luxury cars</p>
@@ -608,7 +620,201 @@
             </div>
         </div>
     </section>-->
+<section>
+<div class="container">
+<div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Tariff Plans</h2>
+                </div>
+            </div>
+<h3 style="text-align:center; margin:40px">Economy Cab Fare</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Economy Cab</th>
+        <th>City to Airport</th>
+        <th>Airport to City</th>
+        <th>Two Way</th>
+	  </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Airport</td>
+        <td>₹. 800 Only</td>
+		<td>₹. 800 Only</td>
+		<td>₹. 1200 Only</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Economy Cab</th>
+        <th>4 Hours * 40 Kms</th>
+        <th>8 Hours * 80 Kms</th>
+        <th>Extra Hour</th>
+		<th>Extra KM</th>
+	  </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hourly Rental</td>
+        <td>₹. 900 Only</td>
+		<td>₹. 1400 Only</td>
+		<td>₹. 100 Only</td>
+		<td>₹. 10 Only</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Economy Cab</th>
+        <th>Non Air Conditioned</th>
+        <th>Air Conditioned</th>
+        <th>Driver Batta</th>
+		<th>Minimum Kms / Day</th>
+	  </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Out-Station</td>
+        <td>₹. 7.5/KM Only</td>
+		<td>₹. 8.5/KM Only</td>
+		<td>₹. 250 Only</td>
+		<td>300 Only</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3 style="text-align:center; margin:40px">Standard Cab Fare</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Standard Cab</th>
+        <th>City to Airport</th>
+        <th>Airport to City</th>
+        <th>Two Way</th>
+	  </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Airport</td>
+        <td>₹. 900 Only</td>
+		<td>₹. 900 Only</td>
+		<td>₹. 1300 Only</td>
+      </tr>
+    </tbody>
+  </table>
+  
+   <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Standard Cab</th>
+        <th>4 Hours * 40 Kms</th>
+        <th>8 Hours * 80 Kms</th>
+        <th>Extra Hour</th>
+		<th>Extra KM</th>
+	  </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hourly Rental</td>
+        <td>₹. 1000 Only</td>
+		<td>₹. 1500 Only</td>
+		<td>₹. 100 Only</td>
+		<td>₹. 11 Only</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Standard Cab</th>
+        <th>Non Air Conditioned</th>
+        <th>Air Conditioned</th>
+        <th>Driver Batta</th>
+		<th>Minimum Kms / Day</th>
+	  </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Out-Station</td>
+        <td>₹. 12.5/KM Only</td>
+		<td>₹. 13.5/KM Only</td>
+		<td>₹. 300 Only</td>
+		<td>300 Only</td>
+      </tr>
+    </tbody>
+  </table>
 
+  <h3 style="text-align:center; margin:40px">Luxury Cab Fare</h3>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Luxury Cab</th>
+        <th>City to Airport</th>
+        <th>Airport to City</th>
+        <th>Two Way</th>
+	  </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Airport</td>
+        <td>₹. 1450 Only</td>
+		<td>₹. 1450 Only</td>
+		<td>₹. 2000 Only</td>
+      </tr>
+    </tbody>
+  </table>
+  
+   <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Luxury Cab</th>
+        <th>4 Hours * 40 Kms</th>
+        <th>8 Hours * 80 Kms</th>
+        <th>Extra Hour</th>
+		<th>Extra KM</th>
+	  </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Hourly Rental</td>
+        <td>₹. 1400 Only</td>
+		<td>₹. 2100 Only</td>
+		<td>₹. 150 Only</td>
+		<td>₹. 13 Only</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Luxury Cab</th>
+        <th>Non Air Conditioned</th>
+        <th>Air Conditioned</th>
+        <th>Driver Batta</th>
+		<th>Minimum Kms / Day</th>
+	  </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Out-Station</td>
+        <td>₹. 8.5/KM Only</td>
+		<td>₹. 9.5/KM Only</td>
+		<td>₹. 300 Only</td>
+		<td>₹. 300 Only</td>
+      </tr>
+    </tbody>
+  </table>  
+</div>
+
+</section>
     <!-- Team Section -->
     <section id="team">
         <div class="container">
