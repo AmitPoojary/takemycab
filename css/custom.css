@@ -1,0 +1,215 @@
+.callBar{
+    background: #ff6200;
+    height: 25px;
+	width: 100%
+}
+.footer{
+	margin-top:10px;
+}
+.customer_care{
+float: right;
+}
+.condition{
+	font-size: 12px;
+	    color: #FF6200;
+}
+.table_content{
+	text-align: center;
+}
+.radioBox{
+	margin-right: 23px;
+    margin-left: 12px;
+}
+.cabLogo{
+	margin-top: 12px
+}
+.logoBar{
+    background: #f9f9f9;
+    height: 100px;
+}
+.menuBar{
+    margin-top:30px;
+	float: right;
+	display: inline-block
+}
+.title{
+    margin-right: 17px; 
+    color: black;
+}
+.signup{
+    float: right; 
+    margin-left:5px
+}
+.terms_condition{
+	margin-top: 50px;
+}
+
+.pathBar{
+    margin-top: 22px;
+    margin-bottom:22px;
+}
+div hr{
+    background-color:black;
+    border: 0 none;
+    color: black;
+    height: 6px;
+}
+.form-control{
+    background-color: #f6f6f6;
+}
+p .big {
+    line-height: 200%;
+}
+.social{
+    margin-top: 14px;
+	float: right
+}
+.drop{
+    margin-top: 10px;
+}
+.subMenu{
+text-align: center
+}
+.bookNow{
+	background-color: #ff6200; 
+	float: right;
+}
+#main_nav ul {
+			float: left;
+			-webkit-transition: .5s;
+			transition: .5s;
+		}
+	
+		#main_nav li {
+			float: left;
+			position: relative;
+			width: 115px;
+			list-style: none;
+			-webkit-transition: .5s;
+			transition: .5s;
+		}
+	
+		#main_nav > ul > li > a, h1 {
+			text-transform: uppercase;
+		}
+	
+		#main_nav a {
+			display: block;
+			text-decoration: none;
+			padding: 5px 10px;
+			color: #000;
+		}
+
+		#main_nav ul ul {
+			position: absolute;
+			left: 0;
+			top: 100%;
+			visibility: hidden;
+			opacity: 0;
+            border: 1px solid black;
+            text-align: center;
+            padding: 0px;
+		}
+	
+		#main_nav ul ul ul {
+			left: 100%;
+			top: 0;
+		}
+	
+		#main_nav li:hover li {
+			background: white;
+            
+		}
+	#main_nav ul li:hover {
+			text-decoration: underline;
+            -webkit-text-decoration-color:#ff6200;
+            -moz-text-decoration-color:#ff6200;
+            
+		}
+	
+		#main_nav li li li:hover {
+			background:white;
+		}
+	
+		#main_nav li:hover > ul {
+			visibility: visible;
+			opacity: 1;
+		}	
+		
+	/*pop up*/
+	/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 2; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #ff6200;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: white;
+    color: white;
+}
+
+.modal-orange-bar-radius{
+	border-top-right-radius: 0.3rem; 
+	border-top-left-radius: 0.3rem
+}
+
+		

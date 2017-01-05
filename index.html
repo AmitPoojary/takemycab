@@ -1,61 +1,423 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
+    <meta charset="UTF-8">
     <title>Take My Cab</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-    <!-- Theme CSS -->
-    <link href="css/agency.min.css" rel="stylesheet">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/daterangepicker.css">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 </head>
+<script src="js/jquery.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/moment.js"></script>
+<script src="js/daterangepicker.js"></script>   
+<!-- Custom Theme JavaScript -->
+  <!--<script src='js/google-sheet.js'></script>-->
+<body>
+    <div class="callBar">
+        <div class="col-md-1"></div>
+        <div class="col-md-8">
+            <!--<font color="#be3600"> CALL US NOW! </font>
+            <font color="white"> +91-96200609090 </font>-->
+            <!--<font color="white" class="signup"> SIGNUP </font>
+            <font color="#be3600" style="float: right"> LOGIN </font>-->
+        </div>
+    </div>
+    <div class="logoBar col-md-12">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <img class="cabLogo" src="img/cab_logo.png" alt="Take My Cab" height="75" width="155">
+            <div class="menuBar">
+                <h4>
+                    <font color="#be3600"> CALL US NOW! </font>
+                    <font color="black"> +91-9620060909 </font>
+                </h4>
+                <!--<font color="white" class="signup"> SIGNUP </font>
+            <font color="#be3600" style="float: right"> LOGIN </font>-->
+            </div>
+        </div>
 
-<body id="page-top" class="index">
+        <div class="col-md-4"></div>
+        <!--<nav id="main_nav" class="col-md-5 menuBar">
+    <ul>
+        <li>
+            <a href="">Home</a>
+        </li>
+        <li>
+            <a href="">Booking</a>
+        </li>
+        <li>
+            <a href="">Contact</a>
+        </li>
+    </ul>
+</nav>-->
+    </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <h2>
+                <font color="#ff6200">BOOKING DETAILS</font>
+            </h2>
+            <hr>
+            <form id="booking">
+                <div class="form-group form-inline">
+                    <label class="radio-inline radioBox">
+                        <input checked="checked" type="radio" name="Ride Type" id="airport" value="Airport"> Airport
+                    </label>
+                    <label class="radio-inline radioBox">
+                        <input type="radio" name="Ride Type" id="hourly" value="Hourly Rental"> Hourly Rental
+                    </label>
+                    <label class="radio-inline radioBox">
+                        <input type="radio" name="Ride Type" id="outstation" value="Outstation"> Outstation
+                    </label>
+                    <label class="radio-inline radioBox">
+                        <input type="radio" name="Ride Type" id="tirupathi" value="Tirupathi Trip">Tirupathi Trip
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input class="form-control input-lg" name='Customer Name' id="name" type="text" placeholder="Name*">
+                </div>
+                <div class="form-group form-inline">
+                    <input class="form-control input-lg" name='Phone' id="phone" type="text" placeholder="Phone*">
+                    <input class="form-control input-lg" name='Email' id="email" type="text" placeholder="Email*">
+                </div>
+                <div class="input-group form-group form-inline">
+                    <!--<input class="form-control input-lg" type="text" name="daterange" placeholder="Name*" />-->
+                    <span class="input-group-addon">Pickup Date and Time</span>
+                    <input type="text" class="form-control input-lg" name="Date" id="date"/>
+                </div>
+                <div class="form-group">
+                    <textarea id="address" class="form-control" rows="5" name='Address' placeholder="Pickup Address*"></textarea>
+                </div>
+                <div class="form-group form-inline">
+                    <select id="cab_type" class="form-control" name='Cab Type'>
+                        <option>Economy</option>
+                        <option>Standard</option>
+                        <option>Luxury</option>
+                        <option>Tempo Traveller</option>
+                    </select>
+                    <select id="ride_airport" class="form-control" name='Journey Type'>
+                        <option>City to Airport</option>
+                        <option>Airport to City</option>
+                        <option>Two Way</option>
+                    </select>
+                    <select id="ride_hourly" class="form-control" style="display: none" name='Journey Type'>
+                        <option>4Hours * 40Kms</option>
+                        <option>8Hours * 80Kms</option>
+                    </select>
+                    <select id="ride_outstation" class="form-control" style="display: none" name='Journey Type'>
+                        <option>Non Air Conditioned</option>
+                        <option>Air Conditioned</option>
+                    </select>
+                    <select id="ride_tirupathi" class="form-control ride_tirupathi" style="display: none" name='Journey Type'>
+                        <option>Non AC</option>
+                        <option>AC</option>
+                    </select>
+                    <select id="ride_tirupathi" class="form-control ride_tirupathi" style="display: none" name='Journey Type'>
+                        <option>One Day Package</option>
+                        <option>Two Day Package</option>
+                    </select>
+                </div>
+                <div class="form-group ">
+                    <textarea id="requirement"class="form-control" name='Requirement' rows="5" placeholder="Requirement, if any"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" id="myBtn" class="btn btn-danger bookNow">Book Now</button>
+                </div>
+            </form>
+        </div>
+        
+    <div class="col-md-5">
+        <h2>
+            <font color="#ff6200">TARIFF DETAILS</font>
+        </h2>
+        <hr>
+        <div id="airport_fares" class="">
+            <h4 style="text-align: center">Airport Fares</h4>
+            <table class="table table-striped table_content">
+                        <thead>
+                            <tr>
+                               <th class="table_content">Cab Type</th>
+                               <th class="table_content">City to Airport</th>
+                               <th class="table_content">City to Airport</th>
+                               <th class="table_content">Two Way</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Economy*</td>
+                                <td>Rs.800 </td>
+                                <td>Rs.800 </td>
+                                <td>Rs.1200 </td>
+                            </tr>
+                            <tr>
+                                <td>Standard**</td>
+                                <td>Rs.900</td>
+                                <td>Rs.900 </td>
+                                <td>Rs.1300 </td>
+                            </tr>
+                            <tr>
+                                <td>Luxury***</td>
+                                <td>Rs.1450 </td>
+                                <td>Rs.1450 </td>
+                                <td>Rs.2000 </td>
+                            </tr>
+                            <tr>
+                                <td>Tempo Traveller</td>
+                                <td>Rs.2000 </td>
+                                <td>Rs.2000 </td>
+                                <td>Rs.2500 </td>
+                            </tr>
+                        </tbody>
+            </table>
+            <div class="col-md-12">
+                <div class="col-md-4 condition">*Hatchback (4+1 Seater) </div>
+                <div class="col-md-4 condition"> **Sedan (4+1 Seater)</div>
+                <div class="col-md-4 condition">***Innova (6+1 Seater) </div>
+            </div>
+            <div class="terms_condition col-md-12">
+                <h5>Terms and conditions:</h5>
+                <p> 1. Parking and toll charges will be charged as per actuals</br>
+                    2. If placards required, ₹. 100 extra to be paid by the customer<br> 
+                    3. For two way bookings, waiting of 2 hours is free; ₹. 100 extra for each extra hour</br>
+                </p>
+            </div>
+        </div>
 
-    <!-- Navigation -->
-   <section>
-   <img src="img/logos/site1.png" class="img-responsive" style="margin-top:-15%; margin-bottom:-225px">
-   </section>
+        <div style="display: none" id="hourly_fares" class="">
+            <h4 style="text-align: center">Hourly Rental Fares</h4>
+            <table class="table table-striped table_content">
+                    <thead>
+                        <tr>
+                            <th class="table_content">Cab Type</th>
+                            <th class="table_content">4 Hours*<br>40 Kms</th>
+                            <th class="table_content">8 Hours*<br>80 Kms</th>
+                            <th class="table_content">Extra Hour</th>
+                            <th class="table_content">Extra Kms</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Economy*</td>
+                            <td>Rs.900 </td>
+                            <td>Rs.1400 </td>
+                            <td>Rs.100 </td>
+                            <td>Rs.10 </td>
+                        </tr>
+                            <tr class="success">
+                            <td>Standard**</td>
+                            <td>Rs.1000 </td>
+                            <td>Rs.1500 </td>
+                            <td>Rs.100 </td>
+                            <td>Rs.10 </td>
+                        </tr>
+                        <tr class="danger">
+                            <td>Luxury***</td>
+                            <td>Rs.1400 </td>
+                            <td>Rs.2100 </td>
+                            <td>Rs.150 </td>
+                            <td>Rs.13 </td>
+                        </tr>
+                        <tr class="info">
+                            <td>Tempo Traveller</td>
+                            <td>Rs.2000 </td>
+                            <td>Rs.2000 </td>
+                            <td>Rs.2500 </td>
+                            <td>Rs.2500 </td>
+                        </tr>
+                </tbody>
+            </table>
+            <div class="col-md-12">
+                    <div class="col-md-4 condition">*Hatchback (4+1 Seater)</div>
+                    <div class="col-md-4 condition">**Sedan (4+1 Seater)</div>
+                    <div class="col-md-4 condition">***Innova (6+1 Seater)</div>
+            </div>
+            <div class="terms_condition col-md-12">
+                    <h5>Terms and conditions:</h5>
+                    <p> 1. For pickup within city limits- kilometre and time starts from customer pickup point</br>
+                        2. For pickups from airport- kilometre and time starts from Take My Cab Office (Jayanagar)</br>
+                        3. Driver batta must be paid extra if the pickup/drop is after 10:00PM and before 06:00AM</br>
+                        4. Parking and toll charges will have to be borne by the customer as per actuals</br>
+                    </p>
+            </div>
+        </div>
 
-    <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+        <div style="display: none" id="outstation_fares" class="">
+                <h4 style="text-align: center">Outstation Cab Fares</h4>
+                <table class="table table-striped table_content">
+                    <thead>
+                            <tr>
+                                <th class="table_content">Cab Type</th>
+                                <th class="table_content">Non Air Conditioned</th>
+                                <th class="table_content">Air Conditioned</th>
+                                <th class="table_content">Driver Batta</th>
+                                <th class="table_content">Minimum Kms/Day</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                            <tr>
+                                <td>Economy*</td>
+                                <td>Rs.8 </td>
+                                <td>Rs.9 </td>
+                                <td>Rs.250 </td>
+                                <td>250</td>
+                            </tr>
+                            <tr class="success">
+                                <td>Standard**</td>
+                                <td>Rs.9 </td>
+                                <td>Rs.9.5 </td>
+                                <td>Rs.300 </td>
+                                <td>300</td>
+                            </tr>
+                            <tr class="danger">
+                                <td>Luxury***</td>
+                                <td>Rs.12 </td>
+                                <td>Rs.13 </td>
+                                <td>Rs.300 </td>
+                                <td>300</td>
+                            </tr>
+                            <tr class="info">
+                                <td>Tempo Traveller</td>
+                                <td>Rs.14 </td>
+                                <td>Rs.15 </td>
+                                <td>Rs.350 </td>
+                                <td>300</td>
+                            </tr>
+                    </tbody>
+                </table>
+                <div class="col-md-12">
+                    <div class="col-md-4 condition">*Hatchback (4+1 Seater)</div>
+                    <div class="col-md-4 condition">**Sedan (4+1 Seater)</div>
+                    <div class="col-md-4 condition">***Innova (6+1 Seater)</div>
+                </div>
+                <div class="terms_condition col-md-12">
+                <h5>Terms and conditions:</h5>
+                <p> 1. For pickup within city limits- kilometre and time starts from customer pickup point</br>
+                    2. For pickups from airport- kilometre and time starts from Take My Cab Office (Jayanagar)</br>
+                    3. Driver batta must be paid extra if the pickup/drop is after 10:00PM and before 06:00AM</br>
+                    4. Parking and toll charges will have to be borne by the customer as per actuals</br>
+                    5. Outstation cabs cannot be booked to ply within the city. Please opt Hourly rentals for inside city commute.
+                </p>
+            </div>
+        </div>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <div style="display: none" id="tirupathi_fares" class="">
+                <h4 style="text-align: center">Tirupathi Trip Fares</h4>
+                <div class="form-group form-inline table_content">
+                    <label class="radio-inline radioBox">
+                        <input checked="checked" type="radio" name="inlineRadioOptions" id="tirupathi_non_ac" value="Non AC"> Non AC
+                    </label>
+                    <label class="radio-inline radioBox">
+                        <input type="radio" name="inlineRadioOptions" id="tirupathi_ac" value="AC"> AC
+                    </label>
+                </div>
+                <table class="table table-striped table_content" id="tirupathi_non_ac_fares">
+                        <thead>
+                            <tr>
+                                <th class="table_content">Cab Type</th>
+                                <th class="table_content">One Day Package</th>
+                                <th class="table_content">Two Day Package</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <td>Economy*</td>
+                                    <td>Rs.8 </td>
+                                    <td>Rs.9 </td>
+                                </tr>
+                                <tr class="success">
+                                    <td>Standard** </td>
+                                    <td>Rs.9 </td>
+                                    <td>Rs.9.5 </td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>Luxury*** </td>
+                                    <td>Rs.12 </td>
+                                    <td>Rs.13 </td>
+                                </tr>
+                                <tr class="info">
+                                    <td>Tempo Traveller</td>
+                                    <td>Rs.14 </td>
+                                    <td>Rs.15 </td>
+                                </tr>
+                        </tbody>
+                </table>
+                <table style="display: none" class="table table-striped table_content" id="tirupathi_ac_fares">
+                        <thead>
+                            <tr>
+                                <th class="table_content">Cab Type</th>
+                                <th class="table_content">One Day Package</th>
+                                <th class="table_content">Two Day Package</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Economy*</td>
+                                <td>Rs.8 </td>
+                                <td>Rs.9 </td>
+                            </tr>
+                            <tr class="success">
+                                <td>Standard** </td>
+                                <td>Rs.9 </td>
+                                <td>Rs.9.5 </td>
+                            </tr>
+                            <tr class="danger">
+                                <td>Luxury***</td>
+                                <td>Rs.12 </td>
+                                <td>Rs.13 </td>
+                            </tr>
+                            <tr class="info">
+                                <td>Tempo Traveller</td>
+                                <td>Rs.14 </td>
+                                <td>Rs.15 </td>
+                            </tr>
+                        </tbody>
+                </table>
+                <div class="col-md-12">
+                        <div class="col-md-4 condition">*Hatchback (4+1 Seater)</div>
+                        <div class="col-md-4 condition">**Sedan (4+1 Seater)</div>
+                        <div class="col-md-4 condition">***Innova (6+1 Seater)</div>
+                </div>
+                <div class="terms_condition col-md-12">
+                <h5>Terms and conditions:</h5>
+                <p> 1. Parking and toll charges will be charged as per actuals</br>
+                    2. One Day package is only for visit to Tirumala Devasthanam. For other visits, charges will be based on base fare</br>
+                    3. Two Day package is visit to all places constituting Tirupathi Tirumala Devasthanam. Stay fare will have to be borne by customer</br>
+                </p>
+            </div>
+        </div>
 
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <!--<div class="social">
+                <img class="social" src="img/social.png" alt="share" height="42" width="180">
+        </div>-->
+    </div>
+<div class="callBar footer col-md-12">
+    <div class="col-md-1"></div>
+    <div class="customer_care col-md-4">
+        <font color="black"> Customer Care Number: </font>
+        <font color="white"> +91-9964187466 </font>
+    </div>
+</div>
 
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+<div id="myModal" class="modal">
 
-    <!-- Theme JavaScript -->
-    <script src="js/agency.min.js"></script>
+ 
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Take My Cab</h2>
+    </div>
+    <div class="modal-body">
+      <p>Thank you for your interest in Take My Cab and booking. <br>We will arrange a call back in the next 90 Minutes. 
+      In case of urgency, reach out to us at +91-9620060909.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default okay" data-dismiss="modal">Close</button>
+      </div>
+  </div>
 
+</div>
 </body>
 
 </html>
