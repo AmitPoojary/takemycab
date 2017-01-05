@@ -165,6 +165,7 @@ var okay = document.getElementsByClassName("okay")[0];
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
+     document.getElementById("booking").reset();
 }
 okay.onclick = function(event) {
     modal.style.display = "none";
