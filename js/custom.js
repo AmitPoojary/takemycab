@@ -36,6 +36,9 @@ $(document).ready(function () {
         $("#ride_outstation").hide();
         $(".ride_tirupathi").hide();
         $("#ride_airport").show();
+        
+        $.fn.removeAllErrors();
+        
     });
 
     $("#hourly").click(function () {
@@ -48,6 +51,7 @@ $(document).ready(function () {
         $("#ride_outstation").hide();
         $(".ride_tirupathi").hide();
         $("#ride_airport").hide();
+        $.fn.removeAllErrors();
     });
     $("#outstation").click(function () {
         $("#airport_fares").hide();
@@ -59,6 +63,8 @@ $(document).ready(function () {
         $("#ride_outstation").show();
         $(".ride_tirupathi").hide();
         $("#ride_airport").hide();
+
+        $.fn.removeAllErrors();
     });
     $("#tirupathi").click(function () {
         $("#airport_fares").hide();
@@ -70,34 +76,104 @@ $(document).ready(function () {
         $("#ride_outstation").hide();
         $(".ride_tirupathi").show();
         $("#ride_airport").hide();
+
+         $.fn.removeAllErrors();
     });
 
     $("#tirupathi_non_ac").click(function () {
         $("#tirupathi_ac_fares").hide();
         $("#tirupathi_non_ac_fares").show();
+
+         $.fn.removeAllErrors();
     });
     $("#tirupathi_ac").click(function () {
         $("#tirupathi_ac_fares").show();
         $("#tirupathi_non_ac_fares").hide();
+
+         $.fn.removeAllErrors();
     });
 
+    $.fn.removeAllErrors = function() {
+        $("#name").removeClass("error");
+        $("#phone").removeClass("error");
+        $("#email").removeClass("error");
+        $("#address").removeClass("error");
+        $("#ride_airport").removeClass("error");
+        $("#ride_hourly").removeClass("error");
+        $("#ride_outstation").removeClass("error");
+        $("#ride_tirupathi_ac_non").removeClass("error");
+        $("#ride_tirupathi_package").removeClass("error");
+        $("#error-message").addClass("error-message");
+    };
     // Variable to hold request
     var request;
 
     // Bind to the submit event of our form
     $("#booking").submit(function (event) {
 
-        if ($("#name").val() == "" || $("#phone").val() == "" || $("#email").val() == "" || $("#address").val() == "") {
-            alert("Incomplete Details")
+        if ($("#name").val() == "" || $("#phone").val() == "" || $("#email").val() == "" || $("#address").val() == "" 
+                    || $("#ride_airport").val() == null && $("#ride_hourly").val() == null && $("#ride_outstation").val() == null
+                    && $("#ride_tirupathi_ac_non").val() == null && $("#ride_tirupathi_package").val() == null) {
+            if($("#name").val() == ""){
+                $("#name").addClass("error");
+            }else{
+                $("#name").removeClass("error");  
+            }
+            if($("#phone").val() == ""){
+                $("#phone").addClass("error");
+            }else{
+                $("#phone").removeClass("error");
+            }
+            if($("#email").val() == ""){
+                $("#email").addClass("error");
+            }else{
+                $("#email").removeClass("error");
+            }
+            if($("#address").val() == ""){
+                $("#address").addClass("error");
+            }else{
+                $("#address").removeClass("error");
+            }
+            if($("#ride_airport").val() == null){
+                $("#ride_airport").addClass("error");
+            }else{
+                $("#ride_airport").removeClass("error");
+            }
+            if($("#ride_hourly").val() == null){
+                $("#ride_hourly").addClass("error");
+            }else{
+                $("#ride_hourly").removeClass("error");
+            }
+            if($("#ride_outstation").val() == null){
+                $("#ride_outstation").addClass("error");
+            }else{
+                $("#ride_outstation").removeClass("error");
+            }
+            if($("#ride_tirupathi_ac_non").val() == null){
+                $("#ride_tirupathi_ac_non").addClass("error");
+            }else{
+                $("#ride_tirupathi_ac_non").removeClass("error");
+            }
+            if($("#ride_tirupathi_package").val() == null){
+                $("#ride_tirupathi_package").addClass("error");
+            }else{
+                $("#ride_tirupathi_package").removeClass("error");
+            }
+           
+            $("#error-message").removeClass("error-message");
+            event.preventDefault();
+            
             
         } else {
             // Abort any pending request
+            $.fn.removeAllErrors();
             if (request) {
                 request.abort();
             }
             // setup some local variables
             var $form = $(this);
-
+            console.log("$form", $form);
+            
             // Let's select and cache all the fields
             var $inputs = $form.find("input, select, button, textarea");
             console.log("$inputs", $inputs);
@@ -111,7 +187,7 @@ $(document).ready(function () {
 
             // Fire off the request to /form.php
             request = $.ajax({
-                url: "https://script.google.com/macros/s/AKfycbzOSTdXmt0hM59SelRzg-_qL0pJWKW3w4aQpaR5XWDP9H0sbrTf/exec",
+                url: "https://script.google.com/macros/s/AKfycbzhKtmAtCljqDU655jBjyJHkKafE4W1RzQ4hMjdd32db3fxnUCx/exec",
                 type: "post",
                 data: serializedData
             });
@@ -144,6 +220,7 @@ $(document).ready(function () {
             // Prevent default posting of form
             event.preventDefault();
             // When the user clicks the button, open the modal 
+            $("#error-message").addClass("error-message");
             modal.style.display = "block";
             //window.open('mailto:amit.poojary.15@gmail.com?subject=subject&body=body');
         }
@@ -169,7 +246,10 @@ span.onclick = function() {
 }
 okay.onclick = function(event) {
     modal.style.display = "none";
+    var dateValue = document.getElementById("date").value;
+    console.log("dateValue", dateValue);
     document.getElementById("booking").reset();
+    document.getElementById("date").setAttribute('value', dateValue);
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -178,4 +258,18 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
 });
+function validateForm() {
+    var x = document.getElementById("email").value;
+    var atpos = x.indexOf("@");
+    var dotpos = x.lastIndexOf(".");
+    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+        $("#valid-email").show();
+        $("#email").addClass("error");
+        return false;
+    }else{
+        $("#valid-email").hide();
+        $("#email").removeClass("error");
+    }
+}

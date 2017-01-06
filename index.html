@@ -63,64 +63,73 @@
             <form id="booking">
                 <div class="form-group form-inline">
                     <label class="radio-inline radioBox">
-                        <input checked="checked" type="radio" name="Ride Type" id="airport" value="Airport"> Airport
+                        <input  checked="checked" type="radio" name="Ride Type" id="airport" value="Airport"> Airport
                     </label>
                     <label class="radio-inline radioBox">
                         <input type="radio" name="Ride Type" id="hourly" value="Hourly Rental"> Hourly Rental
                     </label>
                     <label class="radio-inline radioBox">
-                        <input type="radio" name="Ride Type" id="outstation" value="Outstation"> Outstation
+                        <input  type="radio" name="Ride Type" id="outstation" value="Outstation"> Outstation
                     </label>
                     <label class="radio-inline radioBox">
                         <input type="radio" name="Ride Type" id="tirupathi" value="Tirupathi Trip">Tirupathi Trip
                     </label>
                 </div>
                 <div class="form-group">
-                    <input class="form-control input-lg" name='Customer Name' id="name" type="text" placeholder="Name*">
+                    <input  class="form-control input-lg " name='Customer Name' id="name" type="text" placeholder="Name*">
                 </div>
                 <div class="form-group form-inline">
-                    <input class="form-control input-lg" name='Phone' id="phone" type="text" placeholder="Phone*">
-                    <input class="form-control input-lg" name='Email' id="email" type="text" placeholder="Email*">
+                    <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="10" class="form-control input-lg " name='Phone' id="phone" type="text" placeholder="Phone*">
+                    <input class="form-control input-lg " onfocusout="validateForm()" name='Email' id="email" type="text" placeholder="Email*">
+                    <p id="valid-email" class="form-control valid-email-message" style="display: none">Invalid address</p>
                 </div>
                 <div class="input-group form-group form-inline">
                     <!--<input class="form-control input-lg" type="text" name="daterange" placeholder="Name*" />-->
-                    <span class="input-group-addon">Pickup Date and Time</span>
-                    <input type="text" class="form-control input-lg" name="Date" id="date"/>
+                    <span class="input-group-addon ">Pickup Date and Time</span>
+                    <input type="text" class="form-control input-lg " name="Date" id="date"/>
                 </div>
                 <div class="form-group">
-                    <textarea id="address" class="form-control" rows="5" name='Address' placeholder="Pickup Address*"></textarea>
+                    <textarea id="address" class="form-control " rows="5" name='Address' placeholder="Pickup Address*"></textarea>
                 </div>
                 <div class="form-group form-inline">
-                    <select id="cab_type" class="form-control" name='Cab Type'>
+                    <select id="cab_type" class="form-control " name='Cab Type'>
                         <option>Economy</option>
                         <option>Standard</option>
                         <option>Luxury</option>
                         <option>Tempo Traveller</option>
                     </select>
-                    <select id="ride_airport" class="form-control" name='Journey Type'>
-                        <option>City to Airport</option>
-                        <option>Airport to City</option>
-                        <option>Two Way</option>
+                    <select id="ride_airport" class="form-control " name='Journey Type'>
+                        <option disabled selected value> -- select your ride -- </option>
+                        <option value="City to Airport">City to Airport</option>
+                        <option value="Airport to City">Airport to City</option>
+                        <option value="Two Way">Two Way</option>
                     </select>
-                    <select id="ride_hourly" class="form-control" style="display: none" name='Journey Type'>
-                        <option>4Hours * 40Kms</option>
-                        <option>8Hours * 80Kms</option>
+                    <select id="ride_hourly" class="form-control "  style="display: none" name='Journey Type'>
+                        <option disabled selected value> -- select your hours -- </option>
+                        <option value="4Hours * 40Kms">4Hours * 40Kms</option>
+                        <option value="8Hours * 80Kms">8Hours * 80Kms</option>
                     </select>
-                    <select id="ride_outstation" class="form-control" style="display: none" name='Journey Type'>
+                    <select id="ride_outstation" class="form-control "  style="display: none" name='Journey Type'>
+                        <option disabled selected value> -- select your ride -- </option>
                         <option>Non Air Conditioned</option>
                         <option>Air Conditioned</option>
                     </select>
-                    <select id="ride_tirupathi" class="form-control ride_tirupathi" style="display: none" name='Journey Type'>
+                    <select id="ride_tirupathi_ac_non" class="form-control ride_tirupathi "  style="display: none" name='Journey Type'>
+                        <option disabled selected value> -- select option -- </option>
                         <option>Non AC</option>
                         <option>AC</option>
                     </select>
-                    <select id="ride_tirupathi" class="form-control ride_tirupathi" style="display: none" name='Journey Type'>
+                    <select id="ride_tirupathi_package" class="form-control ride_tirupathi "  style="display: none" name='Journey Type'>
+                        <option disabled selected value> -- select package -- </option>
                         <option>One Day Package</option>
                         <option>Two Day Package</option>
                     </select>
                 </div>
                 <div class="form-group ">
                     <textarea id="requirement"class="form-control" name='Requirement' rows="5" placeholder="Requirement, if any"></textarea>
+                </div>
+                <div id="error-message" class="form-group error-message error-message-style">
+                    <p> Please enter required* fields</p>
                 </div>
                 <div class="form-group">
                     <button type="submit" id="myBtn" class="btn btn-danger bookNow">Book Now</button>
@@ -140,7 +149,7 @@
                             <tr>
                                <th class="table_content">Cab Type</th>
                                <th class="table_content">City to Airport</th>
-                               <th class="table_content">City to Airport</th>
+                               <th class="table_content">Airport to City</th>
                                <th class="table_content">Two Way</th>
                             </tr>
                         </thead>
@@ -222,9 +231,9 @@
                         <tr class="info">
                             <td>Tempo Traveller</td>
                             <td>Rs.2000 </td>
-                            <td>Rs.2000 </td>
-                            <td>Rs.2500 </td>
-                            <td>Rs.2500 </td>
+                            <td>Rs.2800 </td>
+                            <td>Rs.180 </td>
+                            <td>Rs.15 </td>
                         </tr>
                 </tbody>
             </table>
@@ -323,23 +332,23 @@
                         <tbody>
                                 <tr>
                                     <td>Economy*</td>
-                                    <td>Rs.8 </td>
-                                    <td>Rs.9 </td>
+                                    <td>Rs.5000 </td>
+                                    <td>Rs.5850 </td>
                                 </tr>
                                 <tr class="success">
                                     <td>Standard** </td>
-                                    <td>Rs.9 </td>
-                                    <td>Rs.9.5 </td>
+                                    <td>Rs.5600 </td>
+                                    <td>Rs.6550 </td>
                                 </tr>
                                 <tr class="danger">
                                     <td>Luxury*** </td>
-                                    <td>Rs.12 </td>
-                                    <td>Rs.13 </td>
+                                    <td>Rs.7400 </td>
+                                    <td>Rs.8650 </td>
                                 </tr>
                                 <tr class="info">
                                     <td>Tempo Traveller</td>
-                                    <td>Rs.14 </td>
-                                    <td>Rs.15 </td>
+                                    <td>Rs.8050 </td>
+                                    <td>Rs.9400 </td>
                                 </tr>
                         </tbody>
                 </table>
@@ -354,23 +363,23 @@
                         <tbody>
                             <tr>
                                 <td>Economy*</td>
-                                <td>Rs.8 </td>
-                                <td>Rs.9 </td>
+                                <td>Rs.5200 </td>
+                                <td>Rs.6050 </td>
                             </tr>
                             <tr class="success">
                                 <td>Standard** </td>
-                                <td>Rs.9 </td>
-                                <td>Rs.9.5 </td>
+                                <td>Rs.5800 </td>
+                                <td>Rs.6750 </td>
                             </tr>
                             <tr class="danger">
                                 <td>Luxury***</td>
-                                <td>Rs.12 </td>
-                                <td>Rs.13 </td>
+                                <td>Rs.7600 </td>
+                                <td>Rs.8850 </td>
                             </tr>
                             <tr class="info">
                                 <td>Tempo Traveller</td>
-                                <td>Rs.14 </td>
-                                <td>Rs.15 </td>
+                                <td>Rs.8250 </td>
+                                <td>Rs.9600 </td>
                             </tr>
                         </tbody>
                 </table>
@@ -380,25 +389,27 @@
                         <div class="col-md-4 condition">***Innova (6+1 Seater)</div>
                 </div>
                 <div class="terms_condition col-md-12">
-                <h5>Terms and conditions:</h5>
-                <p> 1. Parking and toll charges will be charged as per actuals</br>
-                    2. One Day package is only for visit to Tirumala Devasthanam. For other visits, charges will be based on base fare</br>
-                    3. Two Day package is visit to all places constituting Tirupathi Tirumala Devasthanam. Stay fare will have to be borne by customer</br>
-                </p>
-            </div>
+                    <h5>Terms and conditions:</h5>
+                    <p> 1. Parking, toll charges and entry tax will be charged as per actuals.</br>
+                    2. One Day package is only for visit to Tirumala Devasthanam and is for one calendar day with no halt.</br>
+                    3. Two Day package is visit to all places constituting Tirumala Temple, Padmavathi Temple, Alamelu Mangapuram Temple and Kalahasthi.</br>
+                    4. Stay in case of 2 day package needs to be taken care by customer.</br>
+                    5. Fares for Tirupathi are for journey starting from Bangalore.
+                    </p>
+                </div>
         </div>
 
         <!--<div class="social">
                 <img class="social" src="img/social.png" alt="share" height="42" width="180">
         </div>-->
     </div>
-<div class="callBar footer col-md-12">
-    <div class="col-md-1"></div>
-    <div class="customer_care col-md-4">
-        <font color="black"> Customer Care Number: </font>
-        <font color="white"> +91-9964187466 </font>
-    </div>
-</div>
+    <div class="callBar footer col-md-12">
+        <div class="col-md-1"></div>
+            <div class="customer_care col-md-4">
+                <font color="black"> Customer Care Number: </font>
+                <font color="white"> +91-9964187466 </font>
+            </div>
+            
 
 <div id="myModal" class="modal">
 

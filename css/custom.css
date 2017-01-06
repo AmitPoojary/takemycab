@@ -216,4 +216,20 @@ text-align: center
     background-color: #ff6200;
     color: white;
 }
-		
+.error{
+    border: 1px solid #ff6200 !important;
+}		
+.error-message{
+    
+    visibility: hidden;
+}
+.error-message-style{
+    color: #ff6200;
+    text-align: center; 
+}
+.valid-email-message{
+    background-color: transparent;
+    border: 0px;
+    color: #ff6200;
+    padding: 0px;
+}
