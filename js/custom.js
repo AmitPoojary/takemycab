@@ -260,7 +260,7 @@ window.onclick = function(event) {
 }
 
 });
-function validateForm() {
+function validateEmail() {
     var x = document.getElementById("email").value;
     var atpos = x.indexOf("@");
     var dotpos = x.lastIndexOf(".");
@@ -272,4 +272,14 @@ function validateForm() {
         $("#valid-email").hide();
         $("#email").removeClass("error");
     }
+}
+function validatePhone(el) {
+  if (el.value.length != 10) {
+     $("#valid-phone").show();
+        $("#phone").addClass("error");
+        return false;
+  }else{
+      $("#valid-phone").hide();
+        $("#phone").removeClass("error");
+  }
 }

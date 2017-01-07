@@ -29,9 +29,10 @@
     <header class="logoBar col-md-12">
         <div class="col-md-1"></div>
         <div class="col-md-10 ">
-            <div class="col-md-7 logo-style">
-            <img class="" src="img/cab_logo.png" alt="Take My Cab" height="75" width="155">
+            <div class="col-md-4 logo-style">
+            <img class="" src="img/logo-cab_v2.png" alt="Take My Cab">
             </div>
+            <div class="col-md-3"></div>
             <div class="col-md-5 call-now">
                 <h4>
                     <font color="#be3600"> CALL US NOW! </font>
@@ -71,9 +72,10 @@
                     <input  class="form-control input-lg " name='Customer Name' id="name" type="text" placeholder="Name*">
                 </div>
                 <div class="form-group form-inline">
-                    <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="10" class="form-control input-lg " name='Phone' id="phone" type="text" placeholder="Phone*">
-                    <input class="form-control input-lg " onfocusout="validateForm()" name='Email' id="email" type="text" placeholder="Email*">
+                    <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' onfocusout="validatePhone(this)" maxlength="10" class="form-control input-lg " name='Phone' id="phone" type="text" placeholder="Phone*">
+                    <input class="form-control input-lg " onfocusout="validateEmail()" name='Email' id="email" type="text" placeholder="Email*">
                     <p id="valid-email" class="form-control valid-email-message" style="display: none">Invalid address</p>
+                    <p id="valid-phone" class="form-control valid-email-message" style="display: none">Invalid Number</p>
                 </div>
                 <div class="input-group form-group form-inline">
                     <!--<input class="form-control input-lg" type="text" name="daterange" placeholder="Name*" />-->

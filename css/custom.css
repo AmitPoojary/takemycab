@@ -30,11 +30,11 @@ margin: 10px;
 }
 .logo-style{
         display: block;
-        padding: 15px 10px;
+        padding: 0px 10px;
 }
 .call-now{
     display: block;
-    padding: 35px 45px;
+    padding: 37px 45px;
 }
 /*.menuBar{
     margin-top:30px;
@@ -134,7 +134,6 @@ text-align: center
 			text-decoration: underline;
             -webkit-text-decoration-color:#ff6200;
             -moz-text-decoration-color:#ff6200;
-            
 		}
 	
 		#main_nav li li li:hover {
