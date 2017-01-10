@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    
     var today = new Date();
     var dd = today.getDate();
     var mmm = today.getMonth() + 1; //January is 0!
@@ -110,8 +111,8 @@ $(document).ready(function () {
 
     // Bind to the submit event of our form
     $("#booking").submit(function (event) {
-
-        if ($("#name").val() == "" || $("#phone").val() == "" || $("#email").val() == "" || $("#address").val() == "" 
+            debugger;
+        if ($("#name").val() == "" || validatePhone(numberCheck) == false || validateEmail()==false || $("#address").val() == "" 
                     || $("#ride_airport").val() == null && $("#ride_hourly").val() == null && $("#ride_outstation").val() == null
                     && $("#ride_tirupathi_ac_non").val() == null && $("#ride_tirupathi_package").val() == null) {
             if($("#name").val() == ""){
@@ -121,13 +122,9 @@ $(document).ready(function () {
             }
             if($("#phone").val() == ""){
                 $("#phone").addClass("error");
-            }else{
-                $("#phone").removeClass("error");
             }
             if($("#email").val() == ""){
                 $("#email").addClass("error");
-            }else{
-                $("#email").removeClass("error");
             }
             if($("#address").val() == ""){
                 $("#address").addClass("error");
@@ -165,6 +162,7 @@ $(document).ready(function () {
             
             
         } else {
+            console.log("validateEmail()", validateEmail());
             // Abort any pending request
             $.fn.removeAllErrors();
             if (request) {
@@ -224,7 +222,7 @@ $(document).ready(function () {
             modal.style.display = "block";
             //window.open('mailto:amit.poojary.15@gmail.com?subject=subject&body=body');
         }
-
+        
     });
 // Get the modal
 var modal = document.getElementById('myModal');
@@ -273,7 +271,10 @@ function validateEmail() {
         $("#email").removeClass("error");
     }
 }
+var numberCheck;
 function validatePhone(el) {
+    debugger;
+     numberCheck = el;
   if (el.value.length != 10) {
      $("#valid-phone").show();
         $("#phone").addClass("error");
