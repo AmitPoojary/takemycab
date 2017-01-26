@@ -27,59 +27,61 @@ $(document).ready(function () {
             // alert("You are " + years + " years old.");
         });
 
-    $("#airport").click(function () {
-        $("#airport_fares").show();
-        $("#hourly_fares").hide();
-        $("#outstation_fares").hide();
-        $("#tirupathi_fares").hide();
+        $('#package').change(function(){
+              var selectedPackage = $(this).children('option:selected').attr('data-id');
+              $.fn.package(selectedPackage);
+        });
+        $.fn.package = function(package) {
+            console.log(package);
+            if(package == "airport"){
+                $("#airport_fares").show();
+                $("#hourly_fares").hide();
+                $("#outstation_fares").hide();
+                $("#tirupathi_fares").hide();
 
-        $("#ride_hourly").hide();
-        $("#ride_outstation").hide();
-        $(".ride_tirupathi").hide();
-        $("#ride_airport").show();
+                $("#ride_hourly").hide();
+                $("#ride_outstation").hide();
+                $(".ride_tirupathi").hide();
+                $("#ride_airport").show();
         
-        $.fn.removeAllErrors();
-        
-    });
+                $.fn.removeAllErrors();
+            }else if(package == "hourly"){
+                $("#airport_fares").hide();
+                $("#hourly_fares").show();
+                $("#outstation_fares").hide();
+                $("#tirupathi_fares").hide();
 
-    $("#hourly").click(function () {
-        $("#airport_fares").hide();
-        $("#hourly_fares").show();
-        $("#outstation_fares").hide();
-        $("#tirupathi_fares").hide();
+                $("#ride_hourly").show();
+                $("#ride_outstation").hide();
+                $(".ride_tirupathi").hide();
+                $("#ride_airport").hide();
+                $.fn.removeAllErrors();
+            }else if(package == "outstation"){
+                $("#airport_fares").hide();
+                $("#hourly_fares").hide();
+                $("#outstation_fares").show();
+                $("#tirupathi_fares").hide();
 
-        $("#ride_hourly").show();
-        $("#ride_outstation").hide();
-        $(".ride_tirupathi").hide();
-        $("#ride_airport").hide();
-        $.fn.removeAllErrors();
-    });
-    $("#outstation").click(function () {
-        $("#airport_fares").hide();
-        $("#hourly_fares").hide();
-        $("#outstation_fares").show();
-        $("#tirupathi_fares").hide();
+                $("#ride_hourly").hide();
+                $("#ride_outstation").show();
+                $(".ride_tirupathi").hide();
+                $("#ride_airport").hide();
 
-        $("#ride_hourly").hide();
-        $("#ride_outstation").show();
-        $(".ride_tirupathi").hide();
-        $("#ride_airport").hide();
+                $.fn.removeAllErrors();
+            }else if(package == "tirupathi"){
+                $("#airport_fares").hide();
+                $("#hourly_fares").hide();
+                $("#outstation_fares").hide();
+                $("#tirupathi_fares").show();
 
-        $.fn.removeAllErrors();
-    });
-    $("#tirupathi").click(function () {
-        $("#airport_fares").hide();
-        $("#hourly_fares").hide();
-        $("#outstation_fares").hide();
-        $("#tirupathi_fares").show();
+                $("#ride_hourly").hide();
+                $("#ride_outstation").hide();
+                $(".ride_tirupathi").show();
+                $("#ride_airport").hide();
 
-        $("#ride_hourly").hide();
-        $("#ride_outstation").hide();
-        $(".ride_tirupathi").show();
-        $("#ride_airport").hide();
-
-         $.fn.removeAllErrors();
-    });
+                $.fn.removeAllErrors();
+            }
+        }
 
     $("#tirupathi_non_ac").click(function () {
         $("#tirupathi_ac_fares").hide();
@@ -277,6 +279,7 @@ function validatePhone(el) {
      numberCheck = el;
      if(el != undefined){
   if (el.value.length != 10) {
+  if (el.value.length != 10) {
      $("#valid-phone").show();
         $("#phone").addClass("error");
         return false;
@@ -285,4 +288,5 @@ function validatePhone(el) {
         $("#phone").removeClass("error");
   }
   }
+}
 }

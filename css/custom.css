@@ -2,6 +2,10 @@
     background: #ff6200;
     height: 30px;
 }
+.mobileBar{
+    background: #ff6200;
+    height: 15px;
+} 
 .footer{
 	margin-top:10px;
     height: 100%;
@@ -34,7 +38,25 @@ margin: 10px;
 }
 .call-now{
     display: block;
-    padding: 37px 45px;
+    padding-top: 37px;
+}
+.img-responsive{
+    max-width: 100%;
+    height: auto;
+    display:block;
+}
+.full-width-tabs > ul.nav.nav-tabs {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.full-width-tabs > ul.nav.nav-tabs > li {
+    float: none;
+    display: table-cell;
+    width: 100%
+}
+.full-width-tabs > ul.nav.nav-tabs > li > a {
+    text-align: center;
 }
 /*.menuBar{
     margin-top:30px;
@@ -241,4 +263,10 @@ text-align: center
     border: 0px;
     color: #ff6200;
     padding: 0px;
+}
+.mobile-error{
+    margin: 0px 10px -14px;
+}
+.mobile_ride_tirupathi{
+    margin-top: 4%;
 }
