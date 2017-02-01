@@ -242,12 +242,20 @@
 
 <div style="display: none" id="outstation_fares" class="">
 <h4 style="text-align: center">Outstation Cab Fares</h4>
-<table class="table table-striped table_content">
+<div class="form-group form-inline table_content">
+    <label class="radio-inline radioBox">
+                        <input type="radio" name="inlineRadioOptions" id="outstation_non_ac" value="Non AC"> Non AC
+                    </label>
+    <label class="radio-inline radioBox">
+                        <input checked="checked" type="radio" name="inlineRadioOptions" id="outstation_ac" value="AC"> AC
+                    </label>
+</div>
+<table class="table table-striped table_content" id="outstation_non_ac_fares">
     <thead>
         <tr>
             <th class="table_content">Cab Type</th>
             <th class="table_content">Non Air Condition</th>
-            <th class="table_content">Air Condition</th>
+            <!--<th class="table_content">Air Condition</th>-->
             <th class="table_content">Driver Batta</th>
             <th class="table_content">Minimum Kms/Day</th>
         </tr>
@@ -256,27 +264,68 @@
         <tr>
             <td>Economy*</td>
             <td>Rs.8 </td>
-            <td>Rs.9 </td>
+            <!--<td>Rs.9 </td>-->
             <td>Rs.250 </td>
             <td>250</td>
         </tr>
         <tr>
             <td>Standard**</td>
             <td>Rs.9 </td>
-            <td>Rs.9.5 </td>
+            <!--<td>Rs.9.5 </td>-->
             <td>Rs.300 </td>
             <td>300</td>
         </tr>
         <tr>
             <td>Luxury***</td>
             <td>Rs.12 </td>
-            <td>Rs.13 </td>
+            <!--<td>Rs.13 </td>-->
             <td>Rs.300 </td>
             <td>300</td>
         </tr>
         <tr>
             <td>Tempo Traveller</td>
             <td>Rs.14 </td>
+            <!--<td>Rs.15 </td>-->
+            <td>Rs.350 </td>
+            <td>300</td>
+        </tr>
+    </tbody>
+</table>
+<table style="display: none" class="table table-striped table_content" id="outstation_ac_fares">
+    <thead>
+        <tr>
+            <th class="table_content">Cab Type</th>
+            <th class="table_content">Non Air Condition</th>
+            <!--<th class="table_content">Air Condition</th>-->
+            <th class="table_content">Driver Batta</th>
+            <th class="table_content">Minimum Kms/Day</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Economy*</td>
+            <!--<td>Rs.8 </td>-->
+            <td>Rs.9 </td>
+            <td>Rs.250 </td>
+            <td>250</td>
+        </tr>
+        <tr>
+            <td>Standard**</td>
+            <!--<td>Rs.9 </td>-->
+            <td>Rs.9.5 </td>
+            <td>Rs.300 </td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>Luxury***</td>
+            <!--<td>Rs.12 </td>-->
+            <td>Rs.13 </td>
+            <td>Rs.300 </td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>Tempo Traveller</td>
+            <!--<td>Rs.14 </td>-->
             <td>Rs.15 </td>
             <td>Rs.350 </td>
             <td>300</td>

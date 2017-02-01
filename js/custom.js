@@ -94,6 +94,8 @@ $(document).ready(function () {
          $.fn.removeAllErrors();
     });
 
+
+
     $.fn.removeAllErrors = function() {
         $("#name").removeClass("error");
         $("#phone").removeClass("error");

@@ -96,6 +96,18 @@ $(document).ready(function () {
          $.fn.removeAllErrors();
     });
 
+$("#outstation_non_ac").click(function () {
+        $("#outstation_ac_fares").hide();
+        $("#outstation_non_ac_fares").show();
+
+         $.fn.removeAllErrors();
+    });
+    $("#outstation_ac").click(function () {
+        $("#outstation_ac_fares").show();
+        $("#outstation_non_ac_fares").hide();
+
+         $.fn.removeAllErrors();
+    });
     $.fn.removeAllErrors = function() {
         $("#name").removeClass("error");
         $("#phone").removeClass("error");
