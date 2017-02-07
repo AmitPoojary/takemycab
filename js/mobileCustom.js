@@ -120,6 +120,10 @@ $("#outstation_non_ac").click(function () {
         $("#ride_tirupathi_package").removeClass("error");
         $("#error-message").addClass("error-message");
     };
+    $(".nav-details").click(function () {
+         $(".active").addClass("selected");
+    });
+
     // Variable to hold request
     var request;
 
@@ -263,6 +267,7 @@ okay.onclick = function(event) {
     document.getElementById("booking").reset();
     document.getElementById("date").setAttribute('value', dateValue);
 }
+
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
