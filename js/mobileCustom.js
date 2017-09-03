@@ -120,9 +120,9 @@ $("#outstation_non_ac").click(function () {
         $("#ride_tirupathi_package").removeClass("error");
         $("#error-message").addClass("error-message");
     };
-    $(".nav-details").click(function () {
-         $(".active").addClass("selected");
-    });
+    // $(".nav-details").click(function () {
+    //      $(".active").addClass("selected");
+    // });
 
     // Variable to hold request
     var request;
